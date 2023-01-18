@@ -10,6 +10,17 @@ export default {
     return {
       store,
     }
+  },
+  methods: {
+    //Funzione inserire il path dell'immagine di copertina
+    posterImage(value) {
+      if (value.poster_path) {
+        return `https://image.tmdb.org/t/p/w300${value.poster_path}`
+      }
+      else {
+        return `Nessun Copertina`
+      }
+    },
   }
 }
 
@@ -17,10 +28,10 @@ export default {
 
 
 <template lang="">
-  <h2>This is AppContent</h2>
  <div class="col card">
         <div class="card-body">
-        <h5 class="card-title">{{ movie.title }}</h5>
+        <h5 class="card-title">
+          Titolo: {{ movie.title }}</h5>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
@@ -28,14 +39,10 @@ export default {
                     Titolo originale: {{ movie.original_title }}
                 </div>
             </li>
-            <!-- <li class="list-group-item">
-                <div v-if="store.langList.includes(movie.original_language)">
-                    <img class="flag" :src="`./src/assets/img/${movie.original_language}-flag.png`" alt="">
-                </div>
-                <div v-else>
-                    Lingua originale: {{ movie.original_language }}
-                </div>
-            </li> -->
+       
+            copertina: <img class="" :src="posterImage(index)" :alt="title(index)">
+            
+            Lingua originale: {{ movie.original_language }}
             <li class="list-group-item">
                 <div>
                     Voto: {{ movie.vote_average }}

@@ -35,11 +35,11 @@ export default {
 
 
 <template lang="">
-<h2>This is AppHeader</h2>
+<h1 class="text-center">BoolFlix</h1>
 <div class="container my-4">
         <div class="row">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2" v-model="searchText" @keyup.enter="search(searchText)">
+                <input type="text" class="form-control shadow-none" placeholder="Inserisci un titolo" aria-label="Recipient's username" aria-describedby="button-addon2" v-model="searchText" @keyup.enter="search(searchText)">
                 <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="search(searchText)">Cerca</button>
             </div>
         </div>
@@ -54,6 +54,6 @@ export default {
 
 
 
-<style lang="">
-  
+<style lang="scss" scoped>
+
 </style>
