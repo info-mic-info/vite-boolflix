@@ -29,13 +29,13 @@ export default {
     },
 
     FlagsAcronymUppercase(language) {
-
+      // 1°Metodo
       // if (language === 'en') {
 
       //   language = 'gb'
       // }
 
-
+      // 2°Metodo
       switch (language) {
 
         default:
@@ -48,9 +48,23 @@ export default {
 
       return `https://flagsapi.com/${language.toUpperCase()}/flat/64.png`
 
-    }
-  },
+    },
+    RatingStars() {
+      // Genera stelle piene
+      let FullStars = Math.round(this.movie.vote_average / 2);
+      let FullStarsArray = [];
+      for (let i = 0; i < FullStars; i++) {
+        FullStarsArray.push('fa-solid fa-star full');
+      }
+      // Genera stelle vuote
+      let EmptyStars = 5 - FullStars
+      for (let i = 0; i < EmptyStars; i++) {
+        FullStarsArray.push('fa-regular fa-star empty');
+      }
+      return FullStarsArray
 
+    },
+  }
 }
 </script>
 
@@ -69,7 +83,7 @@ export default {
                 </div>
             </li>
 
-            <img :src="FlagsAcronymUppercase(movie.original_language)">
+            <img class="flag" :src="FlagsAcronymUppercase(movie.original_language)">
           
        
             
@@ -77,13 +91,21 @@ export default {
             <li class="list-group-item">
                 <div>
                     Voto: {{ movie.vote_average }}
-                </div>
+                  </div>
+                  <i v-for="(item, index) in RatingStars()" :key="index" :class="item"></i>
             </li>
         </ul>
   </div>
 </template>
 
 
-<style lang="">
-  
+<style lang="scss" scoped>
+.flag {
+  width: 40px
+}
+
+.full,
+.empty {
+  color: yellow;
+}
 </style>
