@@ -21,8 +21,16 @@ export default {
         return `Nessun Copertina`
       }
     },
-  }
+
+    UpperNationlAcronym() {
+      let Upper_original_language = original_language.toUpperCase()
+      return Upper_original_language
+
+    }
+  },
 }
+
+
 
 </script>
 
@@ -33,16 +41,18 @@ export default {
         <h5 class="card-title">
           Titolo: {{ movie.title }}</h5>
         </div>
+        copertina: <img class="" :src="posterImage(movie)" >
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
                 <div>
                     Titolo originale: {{ movie.original_title }}
                 </div>
             </li>
+
+            <img src="https://flagsapi.com/BE/flat/64.png">
        
-            copertina: <img class="" :src="posterImage(movie)" >
             
-            Lingua originale: {{ movie.original_language }}
+             <p></p> Lingua originale:  {{ movie.UpperNationlAcronym(original_language)}}
             <li class="list-group-item">
                 <div>
                     Voto: {{ movie.vote_average }}
