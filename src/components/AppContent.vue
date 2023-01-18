@@ -30,13 +30,20 @@ export default {
 
     FlagsAcronymUppercase(language) {
 
-      if (language = 'EN') {
+      // if (language === 'en') {
 
-        language = 'GB'
-      }
+      //   language = 'gb'
+      // }
 
-      else {
-        language
+
+      switch (language) {
+
+        default:
+          break
+
+        case 'en':
+          language = 'gb'
+          break;
       }
 
       return `https://flagsapi.com/${language.toUpperCase()}/flat/64.png`
@@ -45,9 +52,6 @@ export default {
   },
 
 }
-
-
-
 </script>
 
 
