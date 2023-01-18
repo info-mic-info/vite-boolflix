@@ -33,25 +33,57 @@ export default {
 
 </script>
 
-
 <template lang="">
-   <div class="container-fluid d-flex justify-content-between">
-    <h1 class="text-center margin-auto">BoolFlix</h1>
+  
+  <header class="d-flex justify-content-between">
+  <!-- HEADER PARTE DX-->
+  <!-- --------------------------------------------------- -->
+   
+  
+  <div class="container-fluid d-flex ">
 
-    <div class="container my-4 ">
-            <div class="row">
-                <div class="input-group mb-3 margin-auto ">
-                    <input type="text" class="form-control shadow-none" placeholder="Inserisci un titolo" aria-label="Recipient's username" aria-describedby="button-addon2" v-model="searchText" @keyup.enter="search(searchText)">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="search(searchText)">Cerca</button>
-                </div>
-            </div>
-          </div>
+      <img src="../assets/Netflix-Official-Logo.png" alt="">
+      <ul class="list-group-item d-flex margin-auto">
+      <li>Home</li>
+       <li>Serie TV</li>
+       <li>Film</li>
+       <li>Originali</li>
+       <li>Aggiunti di recente</li>
+       <li>La mia lista</li>
+    </ul>
+
+  </div>
+
+  <!-- HEADER PART SX -->
+<!-- --------------------------------------------------- -->
+
+    <div class="container d-flex justify-content-end my-4 ">
+      <div class="row margin-auto">
+        <div class="input-group margin-auto ">
+          <input type="text" class="form-control shadow-none " placeholder="Inserisci un titolo" aria-label="Recipient's username" aria-describedby="button-addon2" v-model="searchText" @keyup.enter="search(searchText)">
+          <button class="btn btn-outline-secondary " type="button" id="button-addon2" @click="search(searchText)">Cerca</button>
+        </div>
       </div>
 
-        <div>
+
+
+
+      <ul class="d-flex margin-auto ">
+      <li> <p>BAMBINI</p></li>
+        <li><i class="fa-solid fa-bell"></i></li>
+          <li><i class="fa-solid fa-user"></i></li>
+            <li><i class="fa-solid fa-caret-down"></i></li>
+     </ul>
+          </div>
+      
+<!-- -------------------------------------------------- -->
+</header>
+        <div class="container-fluid">
             Ho trovato {{ store.movieList.length }} film
         </div>
-        <div class="row row-cols-5 gap-5 justify-content-between">
+
+
+        <div class="row p-5 row-cols-5 gap-5 justify-content-between scroll">
             <AppContent v-for="(item, index) in store.movieList" :key="index" :movie="item" />
         </div>
     
@@ -60,7 +92,28 @@ export default {
 
 
 <style lang="scss" scoped>
+header {
+  background: black;
+  color: lightgray;
+
+  img {
+    width: 150px
+  }
+}
+
+li {
+  margin: 0 10px;
+}
+
 .margin-auto {
   margin: auto 0;
+}
+
+li p {
+  margin: auto 0;
+}
+
+.scroll {
+  overflow-x: scroll;
 }
 </style>

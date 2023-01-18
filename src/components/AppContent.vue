@@ -15,7 +15,7 @@ export default {
     //Funzione inserire il path dell'immagine di copertina
     posterImage(value) {
       if (value.poster_path) {
-        return `https://image.tmdb.org/t/p/w300${value.poster_path}`
+        return `https://image.tmdb.org/t/p/w342${value.poster_path}`
       }
       else {
         return `Nessun Copertina`
@@ -70,38 +70,72 @@ export default {
 
 
 <template lang="">
- <div class="col card">    
-        <div class="card-body">
-        <h5 class="card-title">
-          Titolo: {{ movie.title }}</h5>
-        </div>
-        copertina: <img class="" :src="posterImage(movie)" >
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-                <div>
-                    Titolo originale: {{movie.title }}
-                </div>
-            </li>
 
-            <img class="flag" :src="FlagsAcronymUppercase(movie.original_language)">
-          
-       
-            
-            Lingua originale:  {{UpperNationlAcronym(movie.original_language)}}
-            <li class="list-group-item">
-                <div>
-                    Voto: {{ movie.vote_average }}
-                  </div>
-                  <i v-for="(item, index) in RatingStars()" :key="index" :class="item"></i>
-            </li>
-        </ul>
+
+  <div class="card">    
+<div class="image">
+    <img :src="posterImage(movie)" >
   </div>
+    
+    
+    <ul class="list-group list-group-flush">
+         <li class="list-group-item info">
+               <div class="info display-none">
+               <p class=""> <strong>Titolo</strong>: {{ movie.title }}</p>
+            <p><strong>Titolo originale</strong>: {{movie.title }}</p>
+               <strong>Voto</strong>: <i v-for="(item, index) in RatingStars()" :key="index" :class="item"></i>
+               <p><strong>Lingua originale</strong> :  {{UpperNationlAcronym(movie.original_language)}}
+               <img class="flag " :src="FlagsAcronymUppercase(movie.original_language)"></p>
+              </div>
+           
+          </li>
+      </ul>
+  </div>
+
 </template>
 
 
 <style lang="scss" scoped>
 .flag {
+  margin: auto 0;
   width: 40px
+}
+
+
+.display-none {
+  display: none;
+
+}
+
+.image {
+
+  img {
+    width: 200px;
+  }
+}
+
+.card {
+  .img {
+
+    position: relative;
+  }
+
+  &:hover {
+
+    .info {
+      padding: 50% 10px;
+      height: 100%;
+      width: 100%;
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      background-color: black;
+      border: 1px solid red;
+    }
+  }
 }
 
 .full,
