@@ -40,7 +40,7 @@ export default {
                 </div>
             </li>
        
-            copertina: <img class="" :src="posterImage(index)" :alt="title(index)">
+            copertina: <img class="" :src="posterImage(movie)" >
             
             Lingua originale: {{ movie.original_language }}
             <li class="list-group-item">
