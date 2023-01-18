@@ -22,12 +22,28 @@ export default {
       }
     },
 
-    UpperNationlAcronym() {
-      let Upper_original_language = original_language.toUpperCase()
-      return Upper_original_language
+    UpperNationlAcronym(language) {
+
+      return language.toUpperCase()
+
+    },
+
+    FlagsAcronymUppercase(language) {
+
+      if (language = 'EN') {
+
+        language = 'GB'
+      }
+
+      else {
+        language
+      }
+
+      return `https://flagsapi.com/${language.toUpperCase()}/flat/64.png`
 
     }
   },
+
 }
 
 
@@ -36,7 +52,7 @@ export default {
 
 
 <template lang="">
- <div class="col card">
+ <div class="col card">    
         <div class="card-body">
         <h5 class="card-title">
           Titolo: {{ movie.title }}</h5>
@@ -45,14 +61,15 @@ export default {
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
                 <div>
-                    Titolo originale: {{ movie.original_title }}
+                    Titolo originale: {{movie.title }}
                 </div>
             </li>
 
-            <img src="https://flagsapi.com/BE/flat/64.png">
+            <img :src="FlagsAcronymUppercase(movie.original_language)">
+          
        
             
-             <p></p> Lingua originale:  {{ movie.UpperNationlAcronym(original_language)}}
+            Lingua originale:  {{UpperNationlAcronym(movie.original_language)}}
             <li class="list-group-item">
                 <div>
                     Voto: {{ movie.vote_average }}
