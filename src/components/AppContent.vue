@@ -72,25 +72,29 @@ export default {
 <template lang="">
 
 
-  <div class="card">    
-<div class="image">
-    <img :src="posterImage(movie)" >
-  </div>
+   <div class="single-card"> 
+
+      <div class="image">
+
+
+      </div>
+      
+      <img :src="posterImage(movie)" >
+      <ul class="info display-none">
+          <li class="list-group-item ">
+               <div class="description">
+                  <p class=""> <strong>Titolo</strong>: {{ movie.title }}</p>
+                  <p><strong>Titolo originale</strong>: {{movie.title }}</p>
+                  <p><strong>Trama</strong>: {{movie.overview}}</p> 
+                  <strong>Voto</strong>: <i v-for="(item, index) in RatingStars()" :key="index" :class="item"></i>
+                  <p><strong>Lingua originale</strong> :  {{UpperNationlAcronym(movie.original_language)}}
+                  <img class="flag " :src="FlagsAcronymUppercase(movie.original_language)"></p>
+             </div>
+         </li>
+     </ul>
+      
     
-    
-    <ul class="list-group list-group-flush">
-         <li class="list-group-item info">
-               <div class="info display-none">
-               <p class=""> <strong>Titolo</strong>: {{ movie.title }}</p>
-            <p><strong>Titolo originale</strong>: {{movie.title }}</p>
-               <strong>Voto</strong>: <i v-for="(item, index) in RatingStars()" :key="index" :class="item"></i>
-               <p><strong>Lingua originale</strong> :  {{UpperNationlAcronym(movie.original_language)}}
-               <img class="flag " :src="FlagsAcronymUppercase(movie.original_language)"></p>
-              </div>
-           
-          </li>
-      </ul>
-  </div>
+ </div>
 
 </template>
 
@@ -104,28 +108,25 @@ export default {
 
 .display-none {
   display: none;
-
 }
 
-.image {
-
-  img {
-    width: 200px;
-  }
+strong {
+  color: red;
 }
 
-.card {
-  .img {
+.single-card {
+  width: 100%;
+  margin: 10px;
+}
 
-    position: relative;
-  }
+.single-card {
+  position: relative;
 
   &:hover {
-
     .info {
-      padding: 50% 10px;
-      height: 100%;
+      font-size: 12px;
       width: 100%;
+      height: 100%;
       display: block;
       position: absolute;
       top: 50%;
@@ -133,10 +134,22 @@ export default {
       transform: translate(-50%, -50%);
       color: white;
       background-color: black;
+      opacity: 0.9;
       border: 1px solid red;
     }
+
   }
+
 }
+
+.description {
+  width: 100%;
+  padding: 5px;
+
+}
+
+
+
 
 .full,
 .empty {

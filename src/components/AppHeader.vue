@@ -79,11 +79,11 @@ export default {
 <!-- -------------------------------------------------- -->
 </header>
         <div class="container-fluid">
-            Ho trovato {{ store.movieList.length }} film
+            <p> Ho trovato <strong>{{ store.movieList.length }} </strong> film</p>
         </div>
 
 
-        <div class="row p-5 row-cols-5 gap-5 justify-content-between scroll">
+        <div class="d-flex scroll">
             <AppContent v-for="(item, index) in store.movieList" :key="index" :movie="item" />
         </div>
     
@@ -101,6 +101,14 @@ header {
   }
 }
 
+strong {
+  color: red;
+}
+
+p {
+  color: lightgrey;
+}
+
 li {
   margin: 0 10px;
 }
@@ -115,5 +123,6 @@ li p {
 
 .scroll {
   overflow-x: scroll;
+  scrollbar-color: red;
 }
 </style>
