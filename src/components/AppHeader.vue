@@ -1,49 +1,51 @@
 <script>
+import { store } from "../store";
+import AppContent from "./AppContent.vue";
+import axios from "axios";
 
-import { store } from '../store';
-import AppContent from './AppContent.vue';
-import axios from 'axios';
-
-import AppSeries from './AppSeries.vue';
+import AppSeries from "./AppSeries.vue";
 
 export default {
   components: {
     AppContent,
-    AppSeries
+    AppSeries,
   },
 
-
-  name: 'AppHeader',
+  name: "AppHeader",
   data() {
     return {
       store,
-      searchText: '',
-    }
+      searchText: "",
+    };
   },
 
   methods: {
     search(input) {
       let apiCall = store.api + input;
       axios.get(apiCall).then((response) => {
-        store.movieList = response.data.results
-        console.log(store.movieList)
-      })
+        store.movieList = response.data.results;
+        console.log(`Questi sono i film -->${store.movieList}`);
+        console.log(`Questi sono i film -->${apiCall}`);
+      });
     },
 
     searchSeriesTv(input2) {
-      let apiCallSeries = store.api + input2;
+      console.log("check");
+      let apiCallSeries = store.apiSerieTv + input2;
       axios.get(apiCallSeries).then((response) => {
-        store.serieTvList = response.data.results
-      })
+        store.serieTvList = response.data.results;
+        console.log(response);
+        console.log(`Questi sono le serieTv -->${store.serieTvList}`);
+        console.log(`Questi sono le serieTv -->${apiCallSeries}`);
+      });
     },
     GlobalSearch(input3) {
-      this.search(input3)
-      this.searchSeriesTv(input3)
-    }
-  }
-}
-
-
+      console.log("chek");
+      this.search(input3);
+      this.searchSeriesTv(input3);
+    },
+  },
+};
 </script>
 
 <template lang="">
@@ -73,7 +75,7 @@ export default {
     <div class="container d-flex justify-content-end my-4 ">
       <div class="row margin-auto">
         <div class="input-group margin-auto ">
-          <input type="text" class="form-control shadow-none " placeholder="Inserisci un titolo" aria-label="Recipient's username" aria-describedby="button-addon2" v-model="searchText" @keyup.enter="search(searchText)">
+          <input type="text" class="form-control shadow-none " placeholder="Inserisci un titolo" aria-label="Recipient's username" aria-describedby="button-addon2" v-model="searchText" @keyup.enter="GlobalSearch(searchText)">
           <button class="btn btn-outline-secondary " type="button" id="button-addon2" @click="GlobalSearch(searchText)">Cerca</button>
         </div>
       </div>
@@ -106,11 +108,14 @@ export default {
 
 <!-- CICLO SERIE TV -->
 <!-- -------------------------------------------------- -->
-        <!-- <div class="d-flex scroll">
-            <AppSeries v-for="(item2, index2) in store.serieTvList" :key="index2" :series="item2" />
-        </div> -->
+<p> Ho trovato <strong>{{ store.serieTvList.length }} </strong> Serie Tv</p>
 
-        <AppSeries/>
+        <div class="d-flex scroll">
+            <AppSeries v-for="(item2, index2) in store.serieTvList" :key="index2" :series="item2" />
+            
+        </div>
+      
+
 <!-- -------------------------------------------------- -->
 
 
@@ -127,7 +132,7 @@ header {
   color: lightgray;
 
   img {
-    width: 150px
+    width: 150px;
   }
 }
 
