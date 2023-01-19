@@ -35,6 +35,10 @@ export default {
       axios.get(apiCallSeries).then((response) => {
         store.serieTvList = response.data.results
       })
+    },
+    GlobalSearch(input3) {
+      this.search(input3)
+      this.searchSeriesTv(input3)
     }
   }
 }
@@ -87,16 +91,30 @@ export default {
       
 <!-- -------------------------------------------------- -->
 </header>
+
+
+
+<!-- CICLO FILM -->
+<!-- -------------------------------------------------- -->
         <div class="container-fluid">
             <p> Ho trovato <strong>{{ store.movieList.length }} </strong> film</p>
         </div>
-
-
         <div class="d-flex scroll">
             <AppContent v-for="(item, index) in store.movieList" :key="index" :movie="item" />
         </div>
 
-<AppSeries/>
+
+<!-- CICLO SERIE TV -->
+<!-- -------------------------------------------------- -->
+        <!-- <div class="d-flex scroll">
+            <AppSeries v-for="(item2, index2) in store.serieTvList" :key="index2" :series="item2" />
+        </div> -->
+
+        <AppSeries/>
+<!-- -------------------------------------------------- -->
+
+
+
 
     
 </template>
