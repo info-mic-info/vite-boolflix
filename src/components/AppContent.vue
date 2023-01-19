@@ -136,6 +136,7 @@ strong {
       background-color: black;
       opacity: 0.9;
       border: 1px solid red;
+      border-radius: 10px;
     }
 
   }
@@ -148,7 +149,9 @@ strong {
 
 }
 
-
+img {
+  border-radius: 10px;
+}
 
 
 .full,

@@ -4,9 +4,12 @@ import { store } from '../store';
 import AppContent from './AppContent.vue';
 import axios from 'axios';
 
+import AppSeries from './AppSeries.vue';
+
 export default {
   components: {
     AppContent,
+    AppSeries
   },
 
 
@@ -25,8 +28,14 @@ export default {
         store.movieList = response.data.results
         console.log(store.movieList)
       })
-    }
+    },
 
+    searchSeriesTv(input2) {
+      let apiCallSeries = store.api + input2;
+      axios.get(apiCallSeries).then((response) => {
+        store.serieTvList = response.data.results
+      })
+    }
   }
 }
 
@@ -86,6 +95,9 @@ export default {
         <div class="d-flex scroll">
             <AppContent v-for="(item, index) in store.movieList" :key="index" :movie="item" />
         </div>
+
+<AppSeries/>
+
     
 </template>
 
