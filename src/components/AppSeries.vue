@@ -86,7 +86,7 @@ export default {
 </template>
 
 
-<style lang="scss" scoped>
+<style lang="scss">
 h1 {
   color: white;
 }

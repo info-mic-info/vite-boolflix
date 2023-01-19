@@ -99,7 +99,7 @@ export default {
 <!-- CICLO FILM -->
 <!-- -------------------------------------------------- -->
         <div class="container-fluid">
-            <p> Ho trovato <strong>{{ store.movieList.length }} </strong> film</p>
+            <p class="ms-3"> Ho trovato <strong>{{ store.movieList.length }} </strong> film</p>
         </div>
         <div class="d-flex scroll">
             <AppContent v-for="(item, index) in store.movieList" :key="index" :movie="item" />
@@ -108,8 +108,9 @@ export default {
 
 <!-- CICLO SERIE TV -->
 <!-- -------------------------------------------------- -->
-<p> Ho trovato <strong>{{ store.serieTvList.length }} </strong> Serie Tv</p>
-
+      <div class="container-fluid mt-4 ">
+        <p class="ms-3"> Ho trovato <strong>{{ store.serieTvList.length }} </strong> Serie Tv</p>
+      </div>
         <div class="d-flex scroll">
             <AppSeries v-for="(item2, index2) in store.serieTvList" :key="index2" :series="item2" />
             
