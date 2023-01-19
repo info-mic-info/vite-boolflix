@@ -74,7 +74,7 @@ export default {
       <div class="row margin-auto">
         <div class="input-group margin-auto ">
           <input type="text" class="form-control shadow-none " placeholder="Inserisci un titolo" aria-label="Recipient's username" aria-describedby="button-addon2" v-model="searchText" @keyup.enter="search(searchText)">
-          <button class="btn btn-outline-secondary " type="button" id="button-addon2" @click="search(searchText)">Cerca</button>
+          <button class="btn btn-outline-secondary " type="button" id="button-addon2" @click="GlobalSearch(searchText)">Cerca</button>
         </div>
       </div>
 
