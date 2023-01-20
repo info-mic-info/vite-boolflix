@@ -98,6 +98,8 @@ export default {
 
 
 <style lang="scss" >
+@use "../styles/partials/variables" as *;
+
 .flag {
   margin: auto 0;
   width: 40px;
@@ -108,7 +110,7 @@ export default {
 }
 
 strong {
-  color: red;
+  color: $redcolor;
 }
 
 .single-card {
@@ -132,7 +134,7 @@ strong {
       color: white;
       background-color: black;
       opacity: 0.9;
-      border: 1px solid red;
+      border: 1px solid $redcolor;
       border-radius: 10px;
     }
   }

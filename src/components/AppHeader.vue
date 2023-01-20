@@ -131,9 +131,11 @@ export default {
 
 
 <style lang="scss" scoped>
+@use "../styles/partials/variables" as *;
+
 header {
   background: black;
-  color: lightgray;
+  color: $lightgreycolor;
 
   img {
     width: 150px;
@@ -141,15 +143,15 @@ header {
 }
 
 strong {
-  color: red;
+  color: $redcolor;
 }
 
 p {
-  color: lightgrey;
+  color: $lightgreycolor;
 }
 
 .ligthgray {
-  background-color: lightgrey;
+  background-color: $lightgreycolor;
 }
 
 li {
@@ -166,7 +168,7 @@ li p {
 
 .scroll {
   overflow-x: scroll;
-  scrollbar-color: red;
+  scrollbar-color: $redcolor;
 }
 
 a {
@@ -174,7 +176,7 @@ a {
   color: white;
 
   &:hover {
-    border-bottom: 4px solid red;
+    border-bottom: 4px solid $redcolor;
   }
 }
 </style>
