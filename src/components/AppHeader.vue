@@ -90,7 +90,7 @@ export default {
       <li> <p>BAMBINI</p></li>
         <li><i class="fa-solid fa-bell"></i></li>
           <li><i class="fa-solid fa-user"></i></li>
-            <li><i class="fa-solid fa-caret-down"></i></li>
+            <li><i class="fa-solid fa-gear"></i></li>
      </ul>
           </div>
       
@@ -108,7 +108,6 @@ export default {
             <AppContent v-for="(item, index) in store.movieList" :key="index" :movie="item" />
         </div>
 
-
 <!-- CICLO SERIE TV -->
 <!-- -------------------------------------------------- -->
       <div class="container-fluid mt-4 ">
@@ -122,10 +121,6 @@ export default {
 
 <!-- -------------------------------------------------- -->
 
-
-
-
-    
 </template>
 
 
@@ -173,10 +168,11 @@ li p {
 
 a {
   text-decoration: none;
-  color: white;
+  color: $lightgreycolor;
 
   &:hover {
     border-bottom: 4px solid $redcolor;
+    color: white;
   }
 }
 </style>
