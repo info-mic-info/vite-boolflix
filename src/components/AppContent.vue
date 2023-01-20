@@ -99,6 +99,7 @@ export default {
 
 <style lang="scss" >
 @use "../styles/partials/variables" as *;
+@use "../styles/partials/mixin" as *;
 
 .flag {
   margin: auto 0;
@@ -123,19 +124,7 @@ strong {
 
   &:hover {
     .info {
-      font-size: 12px;
-      width: 100%;
-      height: 100%;
-      display: block;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      background-color: black;
-      opacity: 0.9;
-      border: 1px solid $redcolor;
-      border-radius: 10px;
+      @include infoHover;
     }
   }
 }
