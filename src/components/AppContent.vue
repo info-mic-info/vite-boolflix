@@ -17,7 +17,7 @@ export default {
       if (value.poster_path) {
         return `https://image.tmdb.org/t/p/w342${value.poster_path}`;
       } else {
-        return `Nessun Copertina`;
+        return "https://t4.ftcdn.net/jpg/02/12/52/91/360_F_212529193_YRhcQCaJB9ugv5dFzqK25Uo9Ivm7B9Ca.jpg";
       }
     },
 
@@ -39,6 +39,10 @@ export default {
 
         case "en":
           language = "gb";
+          break;
+
+        case "ja":
+          language = "jp";
           break;
       }
 

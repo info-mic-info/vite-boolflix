@@ -59,12 +59,15 @@ export default {
 
       <img src="../assets/Netflix-Official-Logo.png" alt="">
       <ul class="list-group-item d-flex margin-auto">
-      <li>Home</li>
-       <li>Serie TV</li>
-       <li>Film</li>
-       <li>Originali</li>
-       <li>Aggiunti di recente</li>
-       <li>La mia lista</li>
+      <li><a href="">Home</a></li>
+       <li><a href="">Serie TV</a></li>
+       <li><a href="">Film</a></li>
+       <li><a href="">Originali</a></li>
+       <li><a href="">Aggiunti di recente</a></li>
+       <li><a href="">La mia lista</a></li>
+       
+<a href=""></a>
+
     </ul>
 
   </div>
@@ -75,7 +78,7 @@ export default {
     <div class="container d-flex justify-content-end my-4 ">
       <div class="row margin-auto">
         <div class="input-group margin-auto ">
-          <input type="text" class="form-control shadow-none " placeholder="Inserisci un titolo" aria-label="Recipient's username" aria-describedby="button-addon2" v-model="searchText" @keyup.enter="GlobalSearch(searchText)">
+          <input type="text" class="form-control shadow-none ligthgray" placeholder="Inserisci un titolo" aria-label="Recipient's username" aria-describedby="button-addon2" v-model="searchText" @keyup.enter="GlobalSearch(searchText)">
           <button class="btn btn-outline-secondary " type="button" id="button-addon2" @click="GlobalSearch(searchText)">Cerca</button>
         </div>
       </div>
@@ -145,6 +148,10 @@ p {
   color: lightgrey;
 }
 
+.ligthgray {
+  background-color: lightgrey;
+}
+
 li {
   margin: 0 10px;
 }
@@ -160,5 +167,14 @@ li p {
 .scroll {
   overflow-x: scroll;
   scrollbar-color: red;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+
+  &:hover {
+    border-bottom: 4px solid red;
+  }
 }
 </style>

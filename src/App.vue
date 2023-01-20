@@ -1,6 +1,6 @@
 <script>
-import { store } from './store';
-import AppHeader from './components/AppHeader.vue';
+import { store } from "./store";
+import AppHeader from "./components/AppHeader.vue";
 
 export default {
   components: {
@@ -9,9 +9,9 @@ export default {
   data() {
     return {
       store,
-    }
-  }
-}
+    };
+  },
+};
 </script>
 
 
@@ -22,5 +22,5 @@ export default {
 
 
 <style lang="scss">
-@use './styles/generals.scss'
+@use "./styles/generals.scss";
 </style>
